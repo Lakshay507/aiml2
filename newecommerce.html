@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MyShop - E Commerce</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+
+/* Header */
+header {
+    background: #222;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+nav a:hover { color: orange; }
+
+/* Banner */
+.banner {
+    background: linear-gradient(to right, #ff512f, #dd2476);
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+/* Products */
+.container { padding: 40px; }
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: contain;
+}
+
+.price { color: green; font-weight: bold; }
+
+button {
+    background: orange;
+    border: none;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>MyShop</h1>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Products</a>
+        <a href="#">Cart</a>
+        <a href="#">Contact</a>
+    </nav>
+</header>
+
+<div class="banner">
+    <h2>Welcome to MyShop</h2>
+    <p>Your one stop online store</p>
+</div>
+
+<div class="container">
+<h2 style="text-align:center;">Our Products</h2>
+
+<div class="products">
+
+<!-- Product 1 -->
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/61L1ItFgFHL._SX679_.jpg">
+<h3>Samsung Galaxy M14</h3>
+<p class="price">₹12,999</p>
+<button>Add to Cart</button>
+</div>
+
+<!-- Product 2 -->
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/61f1YfTkTDL._SX679_.jpg">
+<h3>Boat Headphones</h3>
+<p class="price">₹1,499</p>
+<button>Add to Cart</button>
+</div>
+
+<!-- Product 3 -->
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/71TPda7cwUL._SX679_.jpg">
+<h3>HP Laptop</h3>
+<p class="price">₹45,000</p>
+<button>Add to Cart</button>
+</div>
+
+<!-- Product 4 -->
+<div class="card">
+<img src="https://m.media-amazon.com/images/I/61XZQXFQeVL._SX679_.jpg">
+<h3>Noise Smart Watch</h3>
+<p class="price">₹2,999</p>
+<button>Add to Cart</button>
+</div>
+
+</div>
+</div>
+
+<footer>
+<p>© 2026 MyShop | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
