@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cyberpunk Login UI</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: gradientMove 12s ease infinite;
+            color: white;
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .card {
+            width: 320px;
+            padding: 30px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glow {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, #9f00ff55, transparent 70%);
+            pointer-events: none;
+            transition: 0.2s;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            outline: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: linear-gradient(90deg, #9f00ff, #00e5ff);
+            color: white;
+            font-weight: 600;
+            position: relative;
+            overflow: hidden;
+        }
+
+        button span {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            background: rgba(255, 255, 255, 0.5);
+            animation: ripple 0.6s linear;
+        }
+
+        @keyframes ripple {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        @media(max-width:500px) {
+            .card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card" id="card">
+
+        <div class="glow" id="glow"></div>
+
+        <h2>Login</h2>
+
+        <input type="text" placeholder="Username">
+
+        <input type="password" placeholder="Password">
+
+        <button id="loginBtn">Login</button>
+
+    </div>
+
+    <script>
+
+        const card = document.getElementById("card")
+        const glow = document.getElementById("glow")
+
+        card.addEventListener("mousemove", (e) => {
+
+            const rect = card.getBoundingClientRect()
+
+            const x = e.clientX - rect.left
+            const y = e.clientY - rect.top
+
+            glow.style.left = x - 100 + "px"
+            glow.style.top = y - 100 + "px"
+
+        })
+
+        const btn = document.getElementById("loginBtn")
+
+        btn.addEventListener("click", function (e) {
+
+            const circle = document.createElement("span")
+
+            const diameter = Math.max(btn.clientWidth, btn.clientHeight)
+
+            circle.style.width = circle.style.height = diameter + "px"
+
+            circle.style.left = e.offsetX - diameter / 2 + "px"
+            circle.style.top = e.offsetY - diameter / 2 + "px"
+
+            btn.appendChild(circle)
+
+            setTimeout(() => circle.remove(), 600)
+
+        })
+
+        gsap.from(".card", {
+            duration: 1.2,
+            y: 60,
+            opacity: 0,
+            ease: "power3.out"
+        })
+
+    </script>
+
+</body>
+
+</html>
