@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Birthday Mayank</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #0f0c29, #302b63, #24243e);
+            background-size: 400% 400%;
+            animation: bgMove 12s ease infinite;
+            overflow: hidden;
+            color: white;
+        }
+
+        @keyframes bgMove {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .card {
+            width: 350px;
+            padding: 30px;
+            border-radius: 18px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 40px rgba(159, 0, 255, 0.3);
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #9f00ff, #00e5ff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .age {
+            opacity: 0.8;
+            margin-bottom: 20px;
+        }
+
+        .message {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #9f00ff, #00e5ff);
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        @media(max-width:500px) {
+            .card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <canvas id="confetti"></canvas>
+
+    <div class="card">
+
+        <h1>🎉 Happy Birthday 🎉</h1>
+
+        <div class="name">Mayank Misra</div>
+
+        <div class="age">19 Years Old</div>
+
+        <div class="message">
+            Wishing you a fantastic birthday, Mayank!
+            May your life be filled with endless happiness,
+            unshakable courage, and growing wisdom.
+
+            Enjoy every moment of your journey and keep shining bright.
+            The world has amazing things waiting for you. 🚀
+        </div>
+
+        <button onclick="celebrate()">Celebrate 🎊</button>
+
+    </div>
+
+    <script>
+
+        gsap.from(".card", {
+            duration: 1.5,
+            y: 80,
+            opacity: 0,
+            ease: "power3.out"
+        })
+
+        const canvas = document.getElementById("confetti")
+        const ctx = canvas.getContext("2d")
+
+        canvas.width = window.innerWidth
+        canvas.height = window.innerHeight
+
+        let pieces = []
+
+        function celebrate() {
+
+            for (let i = 0; i < 150; i++) {
+                pieces.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - 200,
+                    size: Math.random() * 8 + 2,
+                    speed: Math.random() * 3 + 1
+                })
+            }
+
+        }
+
+        function update() {
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+            ctx.fillStyle = "white"
+
+            pieces.forEach(p => {
+                p.y += p.speed
+
+                ctx.fillRect(p.x, p.y, p.size, p.size)
+
+                if (p.y > canvas.height) {
+                    p.y = -10
+                }
+            })
+
+            requestAnimationFrame(update)
+
+        }
+
+        update()
+
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
