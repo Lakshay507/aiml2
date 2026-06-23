@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paldeck - Palworld Database</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <header>
+        <div class="container header-container">
+            <div class="logo-area">
+                <h1>PALWORLD <span>PALDECK WEBSITE</span></h1>
+                <I><span class="badge-version">FANMADE</span></I>
+            </div>
+            <p>List of top 10 most powerful pals collection and their about. </p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="pal-matrix" id="palGrid"></div>
+    </main>
+
+    <div class="modal-overlay" id="palModal">
+        <div class="modal-card">
+            <button class="close-matrix-btn" id="closeModal" aria-label="Close Pop-up">&times;</button>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; A SIMPLE PALDECK WITH 10 MOST POWERFUL PALS SHOWN IN THIS WEBSITE BY LAKSHAY GAUTAM.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
